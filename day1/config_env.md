@@ -19,6 +19,10 @@
 - React
 - React Native
 
+## Install stack that will help
+
+- Insomnia
+
 ## App that will be build
 
 Instagram clone
