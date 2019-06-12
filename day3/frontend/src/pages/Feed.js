@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import api from '../services/api';
 
 import './Feed.css';
 import more from '../assets/more.svg';
@@ -7,6 +8,16 @@ import comment from '../assets/comment.svg';
 import send from '../assets/send.svg';
 
 export default class Feed extends Component {
+  state = {
+    feed: []
+  };
+
+  async componentDidMount() {
+    const response = await api.get('posts');
+
+    this.setState({ feed: response.data });
+  }
+
   render() {
     return (
       <section id="post-list">
