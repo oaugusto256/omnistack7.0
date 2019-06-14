@@ -1,7 +1,7 @@
-const Post = require('../models/Post');
 const sharp = require('sharp');
 const path = require('path');
 const fs = require('fs');
+const Post = require('../models/Post');
 
 module.exports = {
   async index(req, res) {
@@ -11,7 +11,9 @@ module.exports = {
   },
 
   async store(req, res) {
-    const { author, place, description, hashtags } = req.body;
+    const {
+      author, place, description, hashtags,
+    } = req.body;
     const { filename: image } = req.file;
 
     const [name, ext] = image.split('.');
@@ -29,11 +31,11 @@ module.exports = {
       place,
       description,
       hashtags,
-      image: fileName
+      image: fileName,
     });
 
     req.io.emit('post', post);
 
     return res.json(post);
-  }
+  },
 };
