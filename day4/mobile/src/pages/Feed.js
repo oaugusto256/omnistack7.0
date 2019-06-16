@@ -9,8 +9,6 @@ import like from '../assets/like.png';
 import comment from '../assets/comment.png';
 import send from '../assets/send.png';
 
-
-
 export default class Feed extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerRight: (
@@ -45,6 +43,7 @@ export default class Feed extends Component {
                     <Text style={styles.name}>{item.author}</Text>
                     <Text style={styles.place}>{item.place}</Text>
                   </View>
+                  <Image source={more} />
                 </View>
 
                 <Image style={styles.feedImage} source={{ uri: `http://10.0.3.2:3333/${item.image}` }} />
